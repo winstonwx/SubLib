@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using SubLib.Facade;
 
 namespace SubLib.Bll
@@ -16,10 +12,10 @@ namespace SubLib.Bll
         {
             var subs = new List<SubInfo>();
 
-            using (System.IO.StreamReader file = new System.IO.StreamReader(fileName))
+            using (var file = new StreamReader(fileName))
             {
-                List<string> subStrs = new List<string>();
-                string line = string.Empty;
+                var subStrs = new List<string>();
+                var line = string.Empty;
 
                 while ((line = file.ReadLine()) != null)
                 {
@@ -38,7 +34,7 @@ namespace SubLib.Bll
 
                 if (subStrs.Count > 0)
                 {
-                    SubInfo sub = new SubInfo(subStrs);
+                    var sub = new SubInfo(subStrs);
                     subs.Add(sub);
                 }
             }
@@ -49,7 +45,7 @@ namespace SubLib.Bll
 
         public bool SaveFile(List<SubInfo> subs, string fileName)
         {
-            using (System.IO.StreamWriter file = new StreamWriter(fileName))
+            using (var file = new StreamWriter(fileName))
             {
                 foreach (var sub in subs)
                 {
@@ -77,7 +73,7 @@ namespace SubLib.Bll
         }
         private string StripHtml(string input)
         {
-            return Regex.Replace(input, "<.*?>", String.Empty);
+            return Regex.Replace(input, "<.*?>", string.Empty);
         }
     }
 }

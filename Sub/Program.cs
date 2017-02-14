@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SubLib.Bll;
 
 namespace Sub
@@ -18,7 +13,7 @@ namespace Sub
             Console.WriteLine();
 
 
-            SubEngine engine = new SubEngine();
+            var engine = new SubEngine();
 
             var fileContent = engine.LoadSrtFile(@"d:\The.Accountant.2016.BDRip.x264-SPARKS + YTS.AG.srt");
             engine.StripHtml(fileContent);
