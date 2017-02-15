@@ -47,8 +47,17 @@ namespace SubLib.Bll
         {
             using (var file = new StreamWriter(fileName))
             {
+                bool addEmptyLine = false;
                 foreach (var sub in subs)
                 {
+                    if (addEmptyLine)
+                    {
+                        file.WriteLine();
+                    }
+                    else
+                    {
+                        addEmptyLine = true;
+                    }
                     file.Write(sub.ToString());
                 }
             }

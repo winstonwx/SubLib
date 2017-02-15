@@ -56,7 +56,6 @@ namespace SubLib.Facade
             {
                 sb.AppendLine(t);
             }
-            sb.AppendLine();
             return sb.ToString();
         }
     }
