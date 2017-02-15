@@ -4,7 +4,25 @@ using System.Text;
 
 namespace SubLib.Facade
 {
-   public class SubInfo
+    /// <summary>
+    /// https://en.wikipedia.org/wiki/SubRip
+    /// The SubRip file format, as reported on the Matroska multimedia container format website, 
+    /// is "perhaps the most basic of all subtitle formats."
+    /// [9] SubRip (SubRip Text) files are named with the extension .srt, 
+    /// and contain formatted lines of plain text in groups separated by a blank line. 
+    /// Subtitles are numbered sequentially, starting at 1. 
+    /// The time code format used is hours:minutes:seconds,milliseconds with time units fixed 
+    /// to two zero-padded digits and fractions fixed to three zero-padded digits (00:00:00,000). 
+    /// The fractional separator used is the comma, since the program was written in France.
+    /// 
+    /// Example:
+    ///   168
+    ///   00:20:41,150 --> 00:20:45,109
+    ///  - How did he do that?
+    ///  - Made him an offer he couldn't refuse.
+    /// 
+    /// </summary>
+    public class SubInfo
     {
         public int Id { get; set; }
         public TimeSpan StartTime { get; set; }
