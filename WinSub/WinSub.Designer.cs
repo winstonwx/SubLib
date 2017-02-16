@@ -76,9 +76,9 @@
             this.lblTarget.AutoSize = true;
             this.lblTarget.Location = new System.Drawing.Point(12, 53);
             this.lblTarget.Name = "lblTarget";
-            this.lblTarget.Size = new System.Drawing.Size(66, 13);
+            this.lblTarget.Size = new System.Drawing.Size(60, 13);
             this.lblTarget.TabIndex = 3;
-            this.lblTarget.Text = "Taarget File:";
+            this.lblTarget.Text = "Target File:";
             // 
             // tbTarget
             // 
