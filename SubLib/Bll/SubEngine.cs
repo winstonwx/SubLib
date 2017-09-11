@@ -11,18 +11,31 @@ namespace SubLib.Bll
         public List<SubInfo> LoadSrtFile(string fileName)
         {
             var subs = new List<SubInfo>();
-
+            if (string.IsNullOrEmpty(fileName))
+            {
+                return subs;
+            }
             using (var file = new StreamReader(fileName))
             {
                 var subStrs = new List<string>();
                 var line = string.Empty;
+                int lineNumber = 0;
 
                 while ((line = file.ReadLine()) != null)
                 {
+                    lineNumber += 1;
                     if (string.IsNullOrEmpty(line))
                     {
-                        SubInfo sub = new SubInfo(subStrs);
-                        subs.Add(sub);
+                        try
+                        {
+                            SubInfo sub = new SubInfo(subStrs);
+                            subs.Add(sub);
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception($"Line {lineNumber}: Exception:{ex.Message}");
+                        }
+
                         subStrs = new List<string>();
                     }
                     else
@@ -34,8 +47,15 @@ namespace SubLib.Bll
 
                 if (subStrs.Count > 0)
                 {
-                    var sub = new SubInfo(subStrs);
-                    subs.Add(sub);
+                    try
+                    {
+                        var sub = new SubInfo(subStrs);
+                        subs.Add(sub);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"Line {lineNumber}: Exception:{ex.Message}");
+                    }
                 }
             }
 
@@ -83,6 +103,21 @@ namespace SubLib.Bll
         private string StripHtml(string input)
         {
             return Regex.Replace(input, "<.*?>", string.Empty);
+        }
+
+        public void DelayMiliSeconds(List<SubInfo> subs, int delayMiliSeonds)
+        {
+            foreach (var item in subs)
+            {
+                DelayMiliSeconds(item, delayMiliSeonds);
+            }
+        }
+
+        private void DelayMiliSeconds(SubInfo sub, int delayMiliSeonds)
+        {
+            var difference = TimeSpan.FromMilliseconds(delayMiliSeonds);
+            sub.StartTime = sub.StartTime + difference;
+            sub.EndTime = sub.EndTime + difference;
         }
     }
 }

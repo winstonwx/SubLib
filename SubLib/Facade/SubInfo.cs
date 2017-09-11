@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SubLib.Facade
@@ -29,6 +30,23 @@ namespace SubLib.Facade
         public TimeSpan EndTime { get; set; }
 
         public List<string> Text { get; set; }
+
+        public string TextStr
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (var t in Text)
+                {
+                    sb.AppendLine(t);
+                }
+                return sb.ToString();
+            }
+            set
+            {
+                Text = value.Split(new string[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries).ToList();
+            }
+        }
 
         public SubInfo()
         {
