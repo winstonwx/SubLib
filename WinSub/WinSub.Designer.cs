@@ -39,8 +39,8 @@
             this.btnDelay = new System.Windows.Forms.Button();
             this.txtDelayMilliSeconds = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblErrmsg = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -138,10 +138,21 @@
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Controls.Add(this.lblTarget);
             this.panel2.Controls.Add(this.tbTarget);
-            this.panel2.Location = new System.Drawing.Point(4, 438);
+            this.panel2.Location = new System.Drawing.Point(4, 440);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(791, 49);
             this.panel2.TabIndex = 8;
+            // 
+            // lblErrmsg
+            // 
+            this.lblErrmsg.AutoSize = true;
+            this.lblErrmsg.ForeColor = System.Drawing.Color.Red;
+            this.lblErrmsg.Location = new System.Drawing.Point(-1, 28);
+            this.lblErrmsg.Name = "lblErrmsg";
+            this.lblErrmsg.Size = new System.Drawing.Size(483, 13);
+            this.lblErrmsg.TabIndex = 9;
+            this.lblErrmsg.Text = "Please remove html tags when converting subtitle files. Because Sony receiver won" +
+    "\'t recognize them.";
             // 
             // dataGridView1
             // 
@@ -153,23 +164,14 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(4, 32);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(791, 400);
+            this.dataGridView1.Size = new System.Drawing.Size(791, 402);
             this.dataGridView1.TabIndex = 9;
-            // 
-            // lblErrmsg
-            // 
-            this.lblErrmsg.AutoSize = true;
-            this.lblErrmsg.ForeColor = System.Drawing.Color.Red;
-            this.lblErrmsg.Location = new System.Drawing.Point(489, 7);
-            this.lblErrmsg.Name = "lblErrmsg";
-            this.lblErrmsg.Size = new System.Drawing.Size(0, 13);
-            this.lblErrmsg.TabIndex = 9;
             // 
             // WinSub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 487);
+            this.ClientSize = new System.Drawing.Size(795, 489);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtDelayMilliSeconds);
             this.Controls.Add(this.btRemoveHtmTag);
